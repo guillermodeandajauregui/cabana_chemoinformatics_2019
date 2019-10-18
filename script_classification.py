@@ -10,7 +10,7 @@ import seaborn as sns
 import sklearn as sk
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
-
+from sklearn.tree import DecisionTreeClassifier
 
 #read data
 my_data = pd.read_csv("https://raw.githubusercontent.com/BarbaraDiazE/CABANA_CHEMOINFORMATICS/master/Day_4/Supervised_Learning_Classifications/SVM/Data/Data_SVM.csv", sep=",", index_col=[0])
@@ -48,3 +48,14 @@ svf_rbf.fit(X_train, y_train)
 #Evaluate with test data
 svf_rbf.score(X_test, y_test)
 sk.metrics.confusion_matrix(y_test, svf_rbf.predict(X_test))
+
+#Make Decision tree
+
+my_tree = DecisionTreeClassifier(criterion="gini", max_leaf_nodes=8)
+
+my_tree.fit(X_train, y_train)
+
+#Evaluate
+
+my_tree.score(X_test, y_test)
+sk.metrics.confusion_matrix(y_test, my_tree.predict(X_test))
