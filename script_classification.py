@@ -11,6 +11,7 @@ import sklearn as sk
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
 
 #read data
 my_data = pd.read_csv("https://raw.githubusercontent.com/BarbaraDiazE/CABANA_CHEMOINFORMATICS/master/Day_4/Supervised_Learning_Classifications/SVM/Data/Data_SVM.csv", sep=",", index_col=[0])
